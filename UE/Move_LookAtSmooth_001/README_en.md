@@ -43,6 +43,8 @@ A LookAt component that smoothly tracks a target actor. Comes with two variants:
 
 > At BeginPlay the component automatically detects the owner's setup: if a `UPoseableMeshComponent` is present it gets full per-bone control, if only a `USkeletalMeshComponent` is present it applies a best-effort bone override, and otherwise it rotates a `USceneComponent` matching `HeadBoneName` (e.g. a cube-hierarchy character).
 
+> **Note:** The Target field in the Details panel can only be assigned to actors already placed in the level. For Blueprint characters or actors not yet placed in the level, use SetTarget() at runtime instead (e.g. in BeginPlay).
+
 ### Controlling via Code
 
 ```cpp
@@ -98,7 +100,7 @@ You can check the component behavior immediately using the included demo level `
 - **Left side:** Full-body rotation demo — `Watcher_Body` tracks a yellow sphere
 - **Right side:** IK head tracking demo — `IK_Character` rotates only its head to follow a red sphere
 
-> **Note:** The demo scene uses primitive shapes only. A demo video using Mannequin is available on the Asset Store page (not included in this package).
+> **Note:** The demo scene uses primitive shapes only. A demo using Mannequin is available on the Asset Store page (not included in this package).
 
 ---
 
