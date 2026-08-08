@@ -43,6 +43,8 @@
 
 > BeginPlay時にオーナーActorの構成を自動判別します：`UPoseableMeshComponent` があればボーン単位のフル制御、`USkeletalMeshComponent` のみの場合はベストエフォートでボーンを上書き、どちらもない場合は `HeadBoneName` と同名の `USceneComponent`（キューブ階層構成など）を回転させます。
 
+> 注: Details panelのTargetフィールドは、レベルに配置済みのアクターのみ選択できます。まだレベルに配置されていないBlueprintキャラクター等の場合は、ランタイムでSetTarget()を呼び出してください（例: BeginPlay内）。
+
 ### コードからの操作例
 
 ```cpp
@@ -98,7 +100,7 @@ Blueprint からも、コンポーネントを取得して **Set Target** / **Pa
 - 左側：全身回転デモ（`Watcher_Body` が黄色い球を追う）
 - 右側：IK首振りデモ（`IK_Character` が頭だけで赤い球を追う）
 
-> **Note:** デモシーンはプリミティブ形状で構成されています。Mannequinを使用したデモ動画はストアページで確認できます（本パッケージには同梱されていません）。
+> **Note:** デモシーンはプリミティブ形状で構成されています。Mannequinを使用したイメージはストアページで確認できます（本パッケージには同梱されていません）。
 
 ---
 
