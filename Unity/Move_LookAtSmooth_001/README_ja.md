@@ -112,6 +112,6 @@ IK 版も同じ API を使用できます。
 
 もしこのアセットが役に立ちましたら、ぜひレビューを書いて応援していただけると開発の励みになります！
 
-**レビューは★評価のみでも投稿できます（文章のコメントは任意です）。** 以下のストアページの「Reviews」タブから投稿できます。
+以下のストアページの「Reviews」タブから投稿できます。
 
 https://assetstore.unity.com/packages/tools/utilities/smooth-lookat-component-389610
