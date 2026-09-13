@@ -75,6 +75,7 @@ From Blueprint, get a reference to the component and call the **Set Target** / *
 | `bClampAngleY` | `bool` | `false` | Enable/disable Y-axis angle clamping |
 | `MinAngleY` | `float` | `-90.0` (range -180–0) | Minimum Y-axis angle (degrees). Used when bClampAngleY is true |
 | `MaxAngleY` | `float` | `90.0` (range 0–180) | Maximum Y-axis angle (degrees). Used when bClampAngleY is true |
+| `ReferenceForward` | `FVector` | `(0,0,0)` | World-space direction used as Yaw=0 for angle clamping. Leave at (0,0,0) to auto-use the Actor's forward vector at BeginPlay. Changing this at runtime after BeginPlay requires calling SetReferenceForward() |
 
 ### ULogicDevLookAtSmoothIKComponent (IK Head Tracking)
 
@@ -88,7 +89,7 @@ From Blueprint, get a reference to the component and call the **Set Target** / *
 | `MaxAngleX` | `float` | `30.0` (range 0–180) | Maximum X-axis angle (degrees) |
 | `bClampAngleY` | `bool` | `true` | Enable/disable Y-axis angle clamping |
 | `MinAngleY` | `float` | `-80.0` (range -180–0) | Minimum Y-axis angle (degrees) |
-| `MaxAngleY` | `float` | `150.0` (range 0–180) | Maximum Y-axis angle (degrees) |
+| `MaxAngleY` | `float` | `80.0` (range 0–180) | Maximum Y-axis angle (degrees) |
 | `IKWeight` | `float` | `1.0` (range 0–1) | IK blend weight (0 = no effect, 1 = full look-at) |
 
 ---
@@ -111,3 +112,7 @@ An upgraded version (`Move_LookAtSmooth_002`) is in development. Stay tuned!
 ---
 
 If you find this asset useful, please consider leaving a review — it really helps!
+
+You can leave a review on the product page below.
+
+https://www.fab.com/listings/b16ba60d-cb73-48ab-9e13-b23cd5e8bd80
