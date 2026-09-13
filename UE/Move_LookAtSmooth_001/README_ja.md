@@ -75,6 +75,7 @@ Blueprint からも、コンポーネントを取得して **Set Target** / **Pa
 | `bClampAngleY` | `bool` | `false` | Y軸角度制限の有効/無効 |
 | `MinAngleY` | `float` | `-90.0`（範囲 -180〜0） | Y軸最小角度（度）。bClampAngleY=trueのとき有効 |
 | `MaxAngleY` | `float` | `90.0`（範囲 0〜180） | Y軸最大角度（度）。bClampAngleY=trueのとき有効 |
+| `ReferenceForward` | `FVector` | `(0,0,0)` | 角度クランプの基準（Yaw=0方向）となるワールド空間ベクトル。`(0,0,0)`のままならBeginPlay時にActorのForwardベクトルを自動使用。BeginPlay後にランタイムで値を変更する場合はSetReferenceForward()の呼び出しが必要 |
 
 ### ULogicDevLookAtSmoothIKComponent（IK首振り版）
 
@@ -88,7 +89,7 @@ Blueprint からも、コンポーネントを取得して **Set Target** / **Pa
 | `MaxAngleX` | `float` | `30.0`（範囲 0〜180） | X軸最大角度（度） |
 | `bClampAngleY` | `bool` | `true` | Y軸角度制限の有効/無効 |
 | `MinAngleY` | `float` | `-80.0`（範囲 -180〜0） | Y軸最小角度（度） |
-| `MaxAngleY` | `float` | `150.0`（範囲 0〜180） | Y軸最大角度（度） |
+| `MaxAngleY` | `float` | `80.0`（範囲 0〜180） | Y軸最大角度（度） |
 | `IKWeight` | `float` | `1.0`（範囲 0〜1） | IK適用強度（0=無効、1=フル） |
 
 ---
@@ -111,3 +112,7 @@ Blueprint からも、コンポーネントを取得して **Set Target** / **Pa
 ---
 
 もしこのアセットが役に立ちましたら、ぜひレビューを書いて応援していただけると開発の励みになります！
+
+以下のストアページからレビューを投稿できます。
+
+https://www.fab.com/listings/b16ba60d-cb73-48ab-9e13-b23cd5e8bd80
