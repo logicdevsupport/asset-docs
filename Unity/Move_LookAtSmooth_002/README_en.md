@@ -118,3 +118,7 @@ An upgraded version (`Move_LookAtSmooth_003`) is in development, with planned fe
 ---
 
 If you find this asset useful, please consider leaving a review — it really helps!
+
+You can leave a review from the "Reviews" tab on the store page below.
+
+https://assetstore.unity.com/packages/slug/404560
