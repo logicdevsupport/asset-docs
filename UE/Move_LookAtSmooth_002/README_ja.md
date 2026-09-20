@@ -76,9 +76,12 @@ Blueprint からも、コンポーネントを取得して **Set Target** / **Pa
 | `bClampAngleY` | `bool` | `false` | Y軸角度制限の有効/無効 |
 | `MinAngleY` | `float` | `-90.0`（範囲 -180〜0） | Y軸最小角度（度）。bClampAngleY=trueのとき有効 |
 | `MaxAngleY` | `float` | `90.0`（範囲 0〜180） | Y軸最大角度（度）。bClampAngleY=trueのとき有効 |
+| `ReferenceForward` | `FVector` | `(0,0,0)` | 角度クランプの基準（Yaw=0方向）となるワールド空間ベクトル。`(0,0,0)`のままならBeginPlay時にActorのForwardベクトルを自動使用。BeginPlay後にランタイムで値を変更する場合はSetReferenceForward()の呼び出しが必要 |
 | `UpAxis` | `FVector` | `(0,0,1)` | ローカル空間での「上」方向。**Detailsパネルからは非表示**（スクリプト/Blueprint専用、上級者向け。下記Note参照） |
 
 > **Note（UpAxis）:** `UpAxis`は毎フレーム`Owner->GetActorRotation()`で再計算されワールド空間の上方向に変換されるため、乗り物やドローンなど自身が傾く対象にも自動追従します。通常は変更不要です。`bEnableXAxis=true`とデフォルト以外の`UpAxis`を組み合わせると、ピッチのジンバル付近でRoll値が反転する不安定な挙動が確認されているため、意図的にDetailsパネルから非表示にしています（`BlueprintReadWrite`のみ、`EditAnywhere`なし）。Blueprint/C++から値を設定すること自体は可能ですが、非デフォルトの`UpAxis`を使う場合は`bEnableXAxis`を`false`のままにしてください。
+
+> **Note（ReferenceForwardとUnity版の違い）:** Unity版はY-up（水平面はXZ平面）のため、デモではこの値を`(0,0,-1)`のような水平ベクトルとして明示的に設定しています。UE版はZ-up（水平面はXY平面）のため、Unity版と同じ`(0,0,-1)`をそのまま入力すると真下方向になってしまい、水平方向としては無効な値（投影すると縮退）になります。そのため本デモでは`ReferenceForward`をデフォルトの`(0,0,0)`（オート）のままにし、Actor自体の配置回転が最初から正しい水平方向を向くようにしています。Actorの初期向きを変更する場合は、`ReferenceForward`に希望する水平方向（Yaw=0とする方向）を明示的に設定してください。
 
 ### ULogicDevLookAtSmoothIKComponent（IK首振り版）
 

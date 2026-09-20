@@ -76,9 +76,12 @@ From Blueprint, get a reference to the component and call the **Set Target** / *
 | `bClampAngleY` | `bool` | `false` | Enable/disable Y-axis angle clamping |
 | `MinAngleY` | `float` | `-90.0` (range -180–0) | Minimum Y-axis angle (degrees). Used when bClampAngleY is true |
 | `MaxAngleY` | `float` | `90.0` (range 0–180) | Maximum Y-axis angle (degrees). Used when bClampAngleY is true |
+| `ReferenceForward` | `FVector` | `(0,0,0)` | World-space direction used as Yaw=0 for angle clamping. Leave at (0,0,0) to auto-use the Actor's forward vector at BeginPlay. Changing this at runtime after BeginPlay requires calling SetReferenceForward() |
 | `UpAxis` | `FVector` | `(0,0,1)` | "Up" direction in local space. **Hidden from the Details panel** (script/Blueprint-only, advanced use — see the Note below) |
 
 > **Note (UpAxis):** `UpAxis` is re-resolved to world space every frame via `Owner->GetActorRotation()`, so it automatically follows a tilting object such as a vehicle body or a banking drone — normally you won't need to change it. Combining `bEnableXAxis=true` with a non-default `UpAxis` has been confirmed to cause unstable behavior (Roll flips near pitch-gimbal moments), so it's intentionally hidden from the Details panel (`BlueprintReadWrite` only, no `EditAnywhere`). You can still set it from Blueprint/C++, but keep `bEnableXAxis` set to `false` when using a non-default `UpAxis`.
+
+> **Note (ReferenceForward vs. the Unity version):** Unity uses a Y-up axis convention (the horizontal plane is XZ), so the Unity version's demo sets this value explicitly to a horizontal vector such as `(0,0,-1)`. Unreal Engine uses a Z-up convention (the horizontal plane is XY), so a Unity-style value like `(0,0,-1)` would point straight down here and would not be a valid horizontal direction — it gets projected away as degenerate. For that reason, this UE demo instead leaves `ReferenceForward` at its default `(0,0,0)` (auto) and relies on the Actor's own spawn rotation to already face the correct horizontal direction. If you rotate your Actor to a different starting facing, set `ReferenceForward` explicitly to the world-space horizontal direction you want as Yaw=0.
 
 ### ULogicDevLookAtSmoothIKComponent (IK Head Tracking)
 
