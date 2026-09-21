@@ -119,6 +119,8 @@ This package (`Move_LookAtSmooth_002`) is the paid upgrade to `Move_LookAtSmooth
 UpAxis support for actors that tilt away from Z-up, such as vehicles and drones — see `UpAxis` in the Parameter
 Reference above for details.
 
+Want to try the free version first? https://www.fab.com/listings/b16ba60d-cb73-48ab-9e13-b23cd5e8bd80
+
 A further upgrade (`Move_LookAtSmooth_003`) is also in development. Stay tuned!
 
 ### Note for Existing 001 Users
@@ -131,3 +133,4 @@ class definitions.
 ---
 
 If you find this asset useful, please consider leaving a review — it really helps!
+Leave a review here: https://www.fab.com/listings/9f156df3-0e0a-4faf-a1c1-57476c214b86
