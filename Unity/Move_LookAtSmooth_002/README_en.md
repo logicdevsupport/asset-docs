@@ -115,6 +115,10 @@ You can check the component behavior immediately using the included demo scene `
 
 An upgraded version (`Move_LookAtSmooth_003`) is in development, with planned features including predictive look-at (anticipating target movement based on velocity). Stay tuned!
 
+The free version (`Move_LookAtSmooth_001`) is available here:
+
+https://assetstore.unity.com/packages/slug/389610
+
 ---
 
 If you find this asset useful, please consider leaving a review — it really helps!
