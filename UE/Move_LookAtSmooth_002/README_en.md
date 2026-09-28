@@ -121,7 +121,7 @@ Reference above for details.
 
 Want to try the free version first? https://www.fab.com/listings/b16ba60d-cb73-48ab-9e13-b23cd5e8bd80
 
-A further upgrade (`Move_LookAtSmooth_003`) is also in development. Stay tuned!
+A further upgrade (`Move_LookAtSmooth_003`, Plus) is now available on Fab: https://www.fab.com/listings/28758cd4-7f9b-406c-8bba-2297a53039a6
 
 ### Note for Existing 001 Users
 

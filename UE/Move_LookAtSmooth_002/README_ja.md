@@ -121,7 +121,7 @@ Blueprint からも、コンポーネントを取得して **Set Target** / **Pa
 
 まず無料版で試したい方はこちら: https://www.fab.com/listings/b16ba60d-cb73-48ab-9e13-b23cd5e8bd80
 
-さらに上位のバージョン（`Move_LookAtSmooth_003`）を開発予定です。お楽しみに！
+さらに上位のバージョン（`Move_LookAtSmooth_003`、Plus）がFabで公開されています: https://www.fab.com/listings/28758cd4-7f9b-406c-8bba-2297a53039a6
 
 ### ご注意（001をお持ちの場合）
 

@@ -109,7 +109,10 @@ Blueprint からも、コンポーネントを取得して **Set Target** / **Pa
 
 ## 上位版について
 
-上位版 `Move_LookAtSmooth_002` がFabで公開されました。詳細はこちら: https://www.fab.com/listings/9f156df3-0e0a-4faf-a1c1-57476c214b86
+有料の上位版がFabで公開されています。
+
+- `Move_LookAtSmooth_002`（Standard）: https://www.fab.com/listings/9f156df3-0e0a-4faf-a1c1-57476c214b86
+- `Move_LookAtSmooth_003`（Plus）: https://www.fab.com/listings/28758cd4-7f9b-406c-8bba-2297a53039a6
 
 ---
 

@@ -109,7 +109,10 @@ You can check the component behavior immediately using the included demo level `
 
 ## Upgrade Path
 
-The upgraded version, `Move_LookAtSmooth_002`, is now available on Fab. See here: https://www.fab.com/listings/9f156df3-0e0a-4faf-a1c1-57476c214b86
+Paid upgrades are now available on Fab:
+
+- `Move_LookAtSmooth_002` (Standard): https://www.fab.com/listings/9f156df3-0e0a-4faf-a1c1-57476c214b86
+- `Move_LookAtSmooth_003` (Plus): https://www.fab.com/listings/28758cd4-7f9b-406c-8bba-2297a53039a6
 
 ---
 
