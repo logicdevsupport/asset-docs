@@ -113,7 +113,9 @@ IK 版も同じ API を使用できます。
 
 ## 上位版について
 
-上位版（`Move_LookAtSmooth_003`）を開発予定です。予測追従（ターゲットの速度から先読みして追従）などの機能追加を予定しています。お楽しみに！
+さらに上位のバージョン（`Move_LookAtSmooth_003`、Smooth LookAt Component Plus）がUnity Asset Storeで公開されています。予測追従（ターゲットの速度から先読みして追従）機能を追加したバージョンです。
+
+https://assetstore.unity.com/packages/slug/410220
 
 無料版（`Move_LookAtSmooth_001`）は以下からご利用いただけます。
 

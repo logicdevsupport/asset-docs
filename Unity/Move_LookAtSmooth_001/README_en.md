@@ -106,7 +106,12 @@ You can check the component behavior immediately using the included demo scene `
 
 ## Upgrade Path
 
-An upgraded version (`Move_LookAtSmooth_002`) is in development, with planned features including UpAxis support, easing curves, and multi-target management. Stay tuned!
+Paid upgrades are now available on the Unity Asset Store:
+
+- `Move_LookAtSmooth_002` (Smooth LookAt Component Standard): https://assetstore.unity.com/packages/slug/404560
+- `Move_LookAtSmooth_003` (Smooth LookAt Component Plus): https://assetstore.unity.com/packages/slug/410220
+
+※ If you upgrade, please delete this free version (`Move_LookAtSmooth_001`) from your project before importing the upgrade. Importing both at the same time will cause compile errors due to duplicate class definitions.
 
 ---
 

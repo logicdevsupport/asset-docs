@@ -113,7 +113,9 @@ You can check the component behavior immediately using the included demo scene `
 
 ## Upgrade Path
 
-An upgraded version (`Move_LookAtSmooth_003`) is in development, with planned features including predictive look-at (anticipating target movement based on velocity). Stay tuned!
+A further upgrade (`Move_LookAtSmooth_003`, Smooth LookAt Component Plus) is now available on the Unity Asset Store. It adds predictive lead (anticipating target movement based on velocity).
+
+https://assetstore.unity.com/packages/slug/410220
 
 The free version (`Move_LookAtSmooth_001`) is available here:
 

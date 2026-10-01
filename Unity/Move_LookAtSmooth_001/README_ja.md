@@ -106,7 +106,12 @@ IK 版も同じ API を使用できます。
 
 ## 上位版について
 
-上位版（`Move_LookAtSmooth_002`）を開発予定です。UpAxis 対応、イージングカーブ、複数ターゲット管理などの機能追加を予定しています。お楽しみに！
+有料の上位版がUnity Asset Storeで公開されています。
+
+- `Move_LookAtSmooth_002`（Smooth LookAt Component Standard）: https://assetstore.unity.com/packages/slug/404560
+- `Move_LookAtSmooth_003`（Smooth LookAt Component Plus）: https://assetstore.unity.com/packages/slug/410220
+
+※ 上位版を導入する場合は、導入前にプロジェクトからこの無料版（`Move_LookAtSmooth_001`）を削除してください（同じクラス名を使用しているため、両方を同時に導入するとコンパイルエラーになります）。
 
 ---
 
