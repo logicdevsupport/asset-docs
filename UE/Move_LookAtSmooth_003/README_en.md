@@ -10,7 +10,7 @@ A LookAt component that smoothly tracks a target actor. Comes with two variants:
 - **Predictive LookAt support (new)** — Automatically estimates the target's velocity and aims ahead of its current position, reducing the visible tracking lag on a moving target. Off by default; when off, the component aims at the target's current location exactly as in the previous version (002)
 - **C++ and Blueprint support** — `UFUNCTION(BlueprintCallable)` lets you call everything from Blueprint too
 - **Real-time Details panel adjustment** — Tweak parameters while in Play Mode and see the result instantly
-- **Auto-detects three mesh setups (IK version)** — Works with `PoseableMeshComponent`, `SkeletalMeshComponent`, or a plain `SceneComponent` hierarchy
+- **Supported setups (IK version)** — Works with a `PoseableMeshComponent` (rotates the named bone) or a plain `SceneComponent` hierarchy (rotates the named child component). `SkeletalMeshComponent` is not supported at this time (see the note under "How to Use")
 - **Axis limits and angle clamping** — Set minimum and maximum angles independently for X and Y axes
 - **UpAxis support (full-body version)** — Automatically tracks the "up" direction of a tilting object such as a vehicle or drone (see Parameter Reference for details)
 
@@ -40,10 +40,12 @@ A LookAt component that smoothly tracks a target actor. Comes with two variants:
 
 1. Add `LogicDev LookAt Smooth IK` to the character Actor whose head should track a target
 2. Assign the target Actor in the **Target** field
-3. Set **HeadBoneName** (default `"head"`) to the bone name to rotate (for PoseableMesh/SkeletalMesh setups) or the name of a child SceneComponent
+3. Set **HeadBoneName** (default `"head"`) to the bone name to rotate (for a PoseableMesh setup) or the name of a child SceneComponent
 4. Adjust **IKWeight** (0–1) to control the intensity of the head movement
 
-> At BeginPlay the component automatically detects the owner's setup: if a `UPoseableMeshComponent` is present it gets full per-bone control, if only a `USkeletalMeshComponent` is present it applies a best-effort bone override, and otherwise it rotates a `USceneComponent` matching `HeadBoneName` (e.g. a cube-hierarchy character).
+> At BeginPlay the component automatically detects the owner's setup: if a `UPoseableMeshComponent` is present it rotates the bone named `HeadBoneName`; if the owner has neither a `UPoseableMeshComponent` nor a `USkeletalMeshComponent`, it rotates a `USceneComponent` matching `HeadBoneName` (e.g. a cube-hierarchy character).
+
+> **`USkeletalMeshComponent` is not supported at this time.** If the owner has a `USkeletalMeshComponent` and no `UPoseableMeshComponent`, the component logs a warning at BeginPlay and the head bone is not rotated. Use a `UPoseableMeshComponent` or a SceneComponent hierarchy instead. (Corrected in this online documentation on 2026-10-08. The README bundled in the current package still says SkeletalMesh setups work and that a "best-effort bone override" is applied; that is inaccurate and will be corrected in the next package update.)
 
 > **Note:** The Target field in the Details panel can only be assigned to actors already placed in the level. For Blueprint characters or actors not yet placed in the level, use SetTarget() at runtime instead (e.g. in BeginPlay).
 
@@ -104,7 +106,7 @@ From Blueprint, get a reference to the component and call the **Set Target** / *
 | Parameter | Type | Default | Description |
 |---|---|---|---|
 | `Target` | `AActor*` | `nullptr` | The object to look at. Stops tracking when null |
-| `HeadBoneName` | `FName` | `"head"` | Bone name to rotate (PoseableMesh/SkeletalMesh) or child SceneComponent name |
+| `HeadBoneName` | `FName` | `"head"` | Bone name to rotate (PoseableMesh) or child SceneComponent name |
 | `RotationSpeed` | `float` | `12.0` (range 0.0–20.0) | Tracking speed (RInterpTo coefficient). Intentionally higher than the Unity version (5.0), because the interpolation method differs; this value gives a comparably natural tracking feel |
 | `bClampAngleX` | `bool` | `true` | Enable/disable X-axis angle clamping |
 | `MinAngleX` | `float` | `-30.0` (range -180–0) | Minimum X-axis angle (degrees) |

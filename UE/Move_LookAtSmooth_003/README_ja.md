@@ -10,7 +10,7 @@
 - **予測追従（Predictive LookAt）対応（新機能）** — ターゲットの速度を自動推定し、現在位置より少し先を狙うことで、動くターゲットを追う際の見た目の遅れを軽減します。デフォルトはOFFで、OFFのときは旧バージョン（002）と同じくターゲットの現在位置を狙います
 - **C++ / Blueprint 両対応** — `UFUNCTION(BlueprintCallable)` によりBlueprintからも呼び出し可能
 - **Details パネルでリアルタイム調整** — パラメータをPlay中に即座に確認・変更可能
-- **3種類のメッシュ構成に自動対応（IK版）** — PoseableMeshComponent / SkeletalMeshComponent / 通常のSceneComponent階層のいずれでも動作
+- **対応構成（IK版）** — PoseableMeshComponent（指定した名前のボーンを回転）と、通常のSceneComponent階層（指定した名前の子コンポーネントを回転）で動作します。SkeletalMeshComponentは現時点で未対応です（「使い方」の注記参照）
 - **軸制限・角度クランプ対応** — X軸・Y軸ごとに最小/最大角度を設定可能
 - **UpAxis対応（全身回転版）** — 乗り物・ドローンなど、自身が傾く対象の「上」方向に自動追従（詳細はパラメータ一覧参照）
 
@@ -40,10 +40,12 @@
 
 1. 頭部を振らせたいキャラクター Actor に `LogicDev LookAt Smooth IK` コンポーネントを追加します
 2. Details パネルの **Target** に注視対象を設定します
-3. **HeadBoneName**（デフォルト `"head"`）に、回転させたいボーン名（PoseableMesh / SkeletalMesh の場合）または子 SceneComponent の名前を指定します
+3. **HeadBoneName**（デフォルト `"head"`）に、回転させたいボーン名（PoseableMesh の場合）または子 SceneComponent の名前を指定します
 4. **IKWeight** で首振りの強さ（0〜1）を調整できます
 
-> BeginPlay時にオーナーActorの構成を自動判別します：`UPoseableMeshComponent` があればボーン単位のフル制御、`USkeletalMeshComponent` のみの場合はベストエフォートでボーンを上書き、どちらもない場合は `HeadBoneName` と同名の `USceneComponent`（キューブ階層構成など）を回転させます。
+> BeginPlay時にオーナーActorの構成を自動判別します：`UPoseableMeshComponent` があれば `HeadBoneName` のボーンを回転させ、`UPoseableMeshComponent` も `USkeletalMeshComponent` もない場合は `HeadBoneName` と同名の `USceneComponent`（キューブ階層構成など）を回転させます。
+
+> **`USkeletalMeshComponent` は現時点で未対応です。** オーナーActorに `USkeletalMeshComponent` があり `UPoseableMeshComponent` がない場合、BeginPlay時にWarningを出力し、頭のボーンは回転しません。`UPoseableMeshComponent` またはSceneComponent階層の構成でお使いください。（2026-10-08、このオンライン版ドキュメントで訂正しました。現在のパッケージに同梱されているREADMEには、SkeletalMesh構成でも動作する、「ベストエフォートでボーンを上書き」すると書かれていますが、これは実際の動作と異なります。次回のパッケージ更新で訂正します。）
 
 > 注: Details panelのTargetフィールドは、レベルに配置済みのアクターのみ選択できます。まだレベルに配置されていないBlueprintキャラクター等の場合は、ランタイムでSetTarget()を呼び出してください（例: BeginPlay内）。
 
@@ -104,7 +106,7 @@ Blueprint からも、コンポーネントを取得して **Set Target** / **Pa
 | パラメータ | 型 | デフォルト | 説明 |
 |---|---|---|---|
 | `Target` | `AActor*` | `nullptr` | 注視対象。nullptrのとき動作停止 |
-| `HeadBoneName` | `FName` | `"head"` | 回転させるボーン名（PoseableMesh/SkeletalMesh）または子SceneComponent名 |
+| `HeadBoneName` | `FName` | `"head"` | 回転させるボーン名（PoseableMesh）または子SceneComponent名 |
 | `RotationSpeed` | `float` | `12.0`（範囲 0.0〜20.0） | 追従速度（RInterpTo係数）。Unity版（5.0）と補間方式が異なるため、同程度の自然な追従感になるよう意図的に大きめの値にしています |
 | `bClampAngleX` | `bool` | `true` | X軸角度制限の有効/無効 |
 | `MinAngleX` | `float` | `-30.0`（範囲 -180〜0） | X軸最小角度（度） |
