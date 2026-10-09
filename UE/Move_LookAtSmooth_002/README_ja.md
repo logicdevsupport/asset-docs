@@ -81,6 +81,8 @@ Blueprint からも、コンポーネントを取得して **Set Target** / **Pa
 | `ReferenceForward` | `FVector` | `(0,0,0)` | 角度クランプの基準（Yaw=0方向）となるワールド空間ベクトル。`(0,0,0)`のままならBeginPlay時にActorのForwardベクトルを自動使用。BeginPlay後にランタイムで値を変更する場合はSetReferenceForward()の呼び出しが必要 |
 | `UpAxis` | `FVector` | `(0,0,1)` | ローカル空間での「上」方向。**Detailsパネルからは非表示**（スクリプト/Blueprint専用、上級者向け。下記Note参照） |
 
+> **Note（既知の問題: 全身回転版の上下回転）:** 現在のバージョンでは、全身回転版の上下回転（`bEnableXAxis`、既定値は`true`）が正しく動作しません。ターゲットが自分より上か下にいると、上下が逆の方向を向き、Actorが傾くことがあります。**Detailsパネルで`bEnableXAxis`のチェックを外して（`false`にして）お使いください。** チェックを外した状態では、左右（Y軸）の追従は正しく動作します。IK首振り版には影響ありません。次回のアップデートで対応します（この注記は、パッケージ同梱のREADMEにはまだ入っていません）。
+
 > **Note（UpAxis）:** `UpAxis`は毎フレーム`Owner->GetActorRotation()`で再計算されワールド空間の上方向に変換されるため、乗り物やドローンなど自身が傾く対象にも自動追従します。通常は変更不要です。`bEnableXAxis=true`とデフォルト以外の`UpAxis`を組み合わせると、ピッチのジンバル付近でRoll値が反転する不安定な挙動が確認されているため、意図的にDetailsパネルから非表示にしています（`BlueprintReadWrite`のみ、`EditAnywhere`なし）。Blueprint/C++から値を設定すること自体は可能ですが、非デフォルトの`UpAxis`を使う場合は`bEnableXAxis`を`false`のままにしてください。
 
 > **Note（ReferenceForwardとUnity版の違い）:** Unity版はY-up（水平面はXZ平面）のため、デモではこの値を`(0,0,-1)`のような水平ベクトルとして明示的に設定しています。UE版はZ-up（水平面はXY平面）のため、Unity版と同じ`(0,0,-1)`をそのまま入力すると真下方向になってしまい、水平方向としては無効な値（投影すると縮退）になります。そのため本デモでは`ReferenceForward`をデフォルトの`(0,0,0)`（オート）のままにし、Actor自体の配置回転が最初から正しい水平方向を向くようにしています。Actorの初期向きを変更する場合は、`ReferenceForward`に希望する水平方向（Yaw=0とする方向）を明示的に設定してください。
