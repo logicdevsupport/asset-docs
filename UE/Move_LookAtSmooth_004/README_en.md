@@ -24,7 +24,7 @@ A LookAt component that smoothly tracks a target actor. Comes with two variants:
 | Unreal Engine Version | UE 5.3 / 5.5 / 5.7 / 5.8 |
 | Implementation | C++ |
 | Blueprint Support | Full `UFUNCTION(BlueprintCallable)` coverage — usable from Blueprint-only projects |
-| Input System | The components do not depend on any input system. Only the M-key mode switch in the included demo uses Enhanced Input (the plugin lists the engine's EnhancedInput plugin as a dependency; it is enabled by default in UE5) |
+| Input System | No dependency. The plugin does not require Enhanced Input or any other input plugin (the M-key mode switch in the included demo reads the key directly from the player controller) |
 
 ---
 
