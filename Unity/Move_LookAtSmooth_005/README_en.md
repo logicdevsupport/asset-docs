@@ -2,6 +2,8 @@
 
 A LookAt component that smoothly tracks a target object. Comes with two variants: a full-body rotation version (`LogicDevLookAtSmooth`) and an IK head-tracking version (`LogicDevLookAtSmoothIK`). It also includes a component that automatically picks which target to look at from a list of candidates and switches between them (`LogicDevLookAtTargetSelector`). This version (Complete Edition, the final version of the series) adds a smooth fade in / out of the head look, a "most in front" selection mode, field-of-view / distance / line-of-sight limits for target selection, Scene-view gizmos, and development-only tools: a Game-view debug display, a runtime tuning panel and a way to keep values changed in Play Mode.
 
+This is the final version of the Smooth LookAt Component series. No higher version will be released; future updates to this package will be bug fixes and compatibility updates.
+
 ---
 
 ## Features
