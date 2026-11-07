@@ -154,6 +154,7 @@ Paid upgrades are now available on Fab:
 - `Move_LookAtSmooth_002` (Standard): https://www.fab.com/listings/9f156df3-0e0a-4faf-a1c1-57476c214b86
 - `Move_LookAtSmooth_003` (Plus): https://www.fab.com/listings/28758cd4-7f9b-406c-8bba-2297a53039a6
 - `Move_LookAtSmooth_004` (Advanced): https://www.fab.com/listings/814c59ce-1615-4b4b-af79-0e0673490b56
+- `Move_LookAtSmooth_005` (Complete Edition): https://www.fab.com/listings/33d152bb-bbbb-43bd-898a-99a6c092d4fd
 
 ---
 

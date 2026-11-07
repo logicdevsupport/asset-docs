@@ -315,8 +315,9 @@ This package (`Move_LookAtSmooth_004`) is the Advanced upgrade of the series, ad
 
 Want to try the free version first? https://www.fab.com/listings/b16ba60d-cb73-48ab-9e13-b23cd5e8bd80
 
-A further upgrade (`Move_LookAtSmooth_005`) is in development. Stay tuned!
+A further upgrade (`Move_LookAtSmooth_005`, Complete Edition) is now available on Fab: https://www.fab.com/listings/33d152bb-bbbb-43bd-898a-99a6c092d4fd
 
 ---
 
 If you find this asset useful, please consider leaving a review on this product's Fab page — it really helps!
+Leave a review here: https://www.fab.com/listings/814c59ce-1615-4b4b-af79-0e0673490b56

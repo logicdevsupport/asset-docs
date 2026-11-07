@@ -385,3 +385,4 @@ Details パネルの **LogicDev | TargetSelector** カテゴリ。
 ---
 
 もしこのアセットが役に立ちましたら、ぜひFabの商品ページでレビューを書いて応援していただけると開発の励みになります！
+→ [レビューはこちら](https://www.fab.com/listings/33d152bb-bbbb-43bd-898a-99a6c092d4fd)
