@@ -287,6 +287,11 @@ Details パネルの **LogicDev | TargetSelector** カテゴリ。
 
 > **Note:** デモシーンはプリミティブ形状で構成されています。Mannequinを使用したイメージはFabの商品ページで確認できます（本パッケージには同梱されていません）。
 
+## 困ったとき
+
+- **Play in Editor で、Play を押した直後にデモのキー（M）が効かないとき**: 同梱デモでは、Play の始めにキーボードの入力先を自動でゲームの画面に向けています（デモ専用の `Demo_SelectionMode` アクター＝`LogicDevDemoSelectionModeSwitcherActor` の **bFocusGameViewOnPlay**）。自分のレベルでキーが効かないときは、一度ゲームの画面をクリックしてからキーを押すか、エディタの環境設定の **Level Editor > Play > Game Gets Mouse Control** を ON にしてください（UE の初期値は OFF で、マウスで Play を押した直後はキーがエディタ側に残ります）。
+- **コンテンツブラウザにデモのレベルが出ないとき**は、コンテンツブラウザの設定で **Show Plugin Content** を ON にしてください。
+
 ---
 
 ## 導入前の注意（重要）

@@ -288,6 +288,11 @@ You can check the component behavior immediately using the included demo level `
 
 > **Note:** The demo scene uses primitive shapes only. A demo using Mannequin is available on the Fab product page (not included in this package).
 
+## Troubleshooting
+
+- **If the demo keys (M) do nothing right after you press Play in Play in Editor**: the bundled demo turns the keyboard focus to the game view at the start of Play by itself (the demo-only `Demo_SelectionMode` actor, `LogicDevDemoSelectionModeSwitcherActor`, option **bFocusGameViewOnPlay**). If keys do nothing in your own level, click the game view once and press the key again, or turn on **Level Editor > Play > Game Gets Mouse Control** in the Editor Preferences (it is off by default in UE, and right after Play is pressed with the mouse the keys stay with the editor).
+- **If the demo level does not appear in the Content Browser**, turn on **Show Plugin Content** in the Content Browser settings.
+
 ---
 
 ## Before You Import (Important)

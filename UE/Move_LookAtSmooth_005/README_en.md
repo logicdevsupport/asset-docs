@@ -14,6 +14,7 @@ This is the final version of the Smooth LookAt Component series. No higher versi
 - **Smooth fade of the head look (new)** — `FadeOut()` / `FadeIn()` and **WeightFadeTime** blend the IK head look out and back in over a set time instead of snapping (0 = immediately, as before)
 - **Editor viewport display (new)** — The editor viewport shows the angle limits, the field of view / distance limits, every candidate (selectable or not) and the selected target
 - **Game-view debug display (new, development only)** — The same information plus a status table per object, in the game view during Play. It uses DrawDebug drawing, so nothing is drawn in Shipping and Test builds
+- **Game-view tuning panel (new, development only)** — Change the main settings of one object during Play with the mouse, in a small panel in the game view (T key). Nothing is drawn in Shipping and Test builds
 - **Predictive LookAt support** — Automatically estimates the target's velocity and aims ahead of its current position, reducing the visible tracking lag on a moving target. Off by default; when off, the component aims at the target's current location
 - **C++ and Blueprint support** — `UFUNCTION(BlueprintCallable)` lets you call everything from Blueprint too
 - **Real-time Details panel adjustment** — Tweak parameters while in Play Mode and see the result instantly
@@ -147,7 +148,14 @@ In Blueprint, `OnTargetChanged` can be bound with the **+** button next to **On 
 - With many objects, **MaxRows** (default 8) limits the rows, and the last row says "+N more". With **bOnScreenOnly** (default off), objects the camera cannot see get no row and no lines
 - It uses DrawDebug drawing, so **nothing is drawn in Shipping and Test builds** (the drawing code is not compiled). If you forget to remove it, your released game still shows nothing
 
-**Tune in the Details panel:** to change values during Play, press **F8** to eject to the editor (or run **Simulate**), select the Actor in the Outliner and change it in the Details panel.
+**Game-view tuning panel (`LogicDev LookAt Tuning Panel`, new):** place one of these actors in the level (Place Actors window, All Classes) to change the main settings of one object during Play without leaving the game view. An object is a target selector with the LookAt components it drives, or a LookAt component that no selector drives (the same objects as the Debug View's table). The panel is in the bottom-right corner; click **<** / **>** to choose the object, **-** / **+** to change a value and **o** to flip a switch. Rows: Selection Mode, Use View Angle, View Angle (left/right, degrees), Use Max Distance, Max Distance (cm), Line of Sight, Prediction, Prediction Time (seconds), Fade Time (seconds), Head Look (fade out / in), and which parts of the Debug View are drawn (Angles, Lines, Prediction, Table, On Screen Only). A row that does not apply to the object shows `-`. It changes the same properties as the Details panel.
+
+- **ToggleKey** (default the **T key**) hides and shows the panel; **bStartHidden** starts Play with it hidden
+- While the panel is shown it is in **UI mode**: the mouse cursor is shown and free (input mode Game and UI, so the game still gets its keys and mouse buttons). Hiding it with the key gives back the game's mouse settings. Your own camera / mouse-look code can skip mouse look while **IsAnyPanelInUIMode** is true (or bind **OnUIModeEntered** / **OnUIModeExited**). Turn off **bUIModeWhileShown** if the panel should never touch the cursor
+- The size is the same as on a 1080-pixel-high screen; on a smaller game view (for example the Play-in-Editor view on a laptop) it shrinks only as much as needed, so every row stays on screen and can be clicked
+- The values go back when Play stops (to keep them, see "Keeping values changed during Play" below). Like the Debug View, **it draws nothing and is never in UI mode in Shipping and Test builds**
+
+**Or tune in the Details panel:** to change values during Play, press **F8** to eject to the editor (or run **Simulate**), select the Actor in the Outliner and change it in the Details panel.
 
 **Keeping values changed during Play:** use the engine's **Keep Simulation Changes**. While ejected with F8 or during Simulate, right-click the Actor you changed (in the viewport or the Outliner) and choose **Keep Simulation Changes** (or press the **K key**). The Actor's values stay after Play stops. Save the level afterwards.
 
@@ -344,13 +352,19 @@ You can check the component behavior immediately using the included demo level `
 - **Switching the mode:** press the **M key** during Play to go through `Nearest`, `Priority` and `Facing`. In the demo, `A2` and `B2` have Priority 2 and `A` and `B` have Priority 1, so in `Priority` mode the characters keep looking at `A2` / `B2` even when they are farther away (except while those cannot be seen). To switch without the key, change **Mode** on the `Demo_SelectionMode` actor in the Details panel (this also works during Play)
 - **Reading the labels:** labels are shown above each character. The mode label shows the current mode and the name of the target being looked at (for example `Nearest: A2` or `Priority: B2`); the target's name is shown in a color close to that sphere's color. The prediction label shows the Predictive LookAt state (`Prediction: OFF` / `Prediction: ON`)
 - **Predictive LookAt:** both demos automatically switch prediction OFF / ON every 4.5 seconds (starting with OFF). While prediction is ON, a small marker shows the location actually being aimed at (`PredictedPosition`) for the target currently being looked at. To make the marker easy to see, the demo characters use `PredictionTime = 0.4` (the component default is 0.25)
-- **Field of view and line of sight (new):** a wall stands on the tilting platform. The full-body side checks the line of sight, so it does not pick `A2` while `A2` is behind the wall (the label shows `(A2 hidden)`). The IK side has a field of view of ±70° left/right and ±45° up/down from the head and does not pick a sphere outside it (`(B2 out of view)`). Press the **V key** to turn these checks off / on
+- **Field of view and line of sight (new):** a wall stands on the tilting platform. The full-body side checks the line of sight, so it does not pick `A2` while `A2` is behind the wall (the label shows `(A2 hidden)`). The IK side has a field of view of ±45° left/right and ±45° up/down from the head and does not pick a sphere outside it (`(B2 out of view)`). Press the **V key** to turn these checks off / on
 - **Head fade (new):** `IK_Character` fades its head look out and back in on a cycle (on for 8 seconds, fade out for 1 second, off for 2 seconds, fade in for 1 second). A label shows `Look: ON` / `Look: fading out` / `Look: OFF` / `Look: fading in`. Press the **F key** to fade out / in by hand (this stops the cycle)
 - **Debug display (new):** the `Demo_Debug` actor (`LogicDev LookAt Debug View`) is showing from the start. Press the **G key** to hide / show it. See "Viewport Display, Debug Display and Keeping Values Changed During Play" above
+- **Tuning panel (new):** the `Demo_TuningPanel` actor (`LogicDev LookAt Tuning Panel`) shows its panel in the bottom-right corner from the start, with the mouse cursor free. Press the **T key** to hide / show it. Note that the demo's own switching (M, V, F keys and the prediction / fade cycles) can change the same values again
 
 > **Note:** Switching every selector's mode at once, updating the labels, toggling prediction OFF / ON and the fade cycle are all done by demo-only classes (`LogicDevDemoSelectionModeSwitcherActor`, `LogicDevDemoSelectionLabelComponent`, `LogicDevDemoPredictionToggleComponent` and `LogicDevDemoFadeToggleComponent`). You do not need them in your own levels — set **SelectionMode** on the target selector and **Enable Prediction** on the LookAt component directly.
 
 > **Note:** The demo scene uses primitive shapes only. A demo using Mannequin is available on the Fab product page (not included in this package).
+
+## Troubleshooting
+
+- **If the demo keys (M, V, F, G, T) do nothing right after you press Play in Play in Editor**: the bundled demo turns the keyboard focus to the game view at the start of Play by itself (the demo-only `Demo_SelectionMode` actor, `LogicDevDemoSelectionModeSwitcherActor`, option **bFocusGameViewOnPlay**). If keys do nothing in your own level, click the game view once and press the key again, or turn on **Level Editor > Play > Game Gets Mouse Control** in the Editor Preferences (it is off by default in UE, and right after Play is pressed with the mouse the keys stay with the editor).
+- **If the demo level does not appear in the Content Browser**, turn on **Show Plugin Content** in the Content Browser settings.
 
 ---
 

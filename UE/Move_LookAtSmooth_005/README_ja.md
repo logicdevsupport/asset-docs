@@ -14,6 +14,7 @@
 - **首振りのなめらかなフェード（新機能）** — `FadeOut()` / `FadeIn()` と **WeightFadeTime** で、IK の首振りを指定した時間でなめらかにやめたり、戻したりできます（0 なら従来どおり即時）
 - **ビューポートの補助表示（新機能）** — エディタのビューポートに、角度制限の範囲、視野角・距離の範囲、候補（選べるか・選べないか）、選ばれている相手を表示します
 - **ゲーム画面のデバッグ表示（新機能、開発用）** — 同じ情報と、オブジェクトごとの状態の表を Play 中のゲーム画面に表示します。DrawDebug 系の描画なので、Shipping・Test のビルドでは何も描かれません
+- **ゲーム画面の調整パネル（新機能、開発用）** — Play 中に、ゲーム画面の小さなパネルで、1つのオブジェクトの主な設定をマウスで変えられます（T キー）。Shipping・Test のビルドでは何も描かれません
 - **予測追従（Predictive LookAt）対応** — ターゲットの速度を自動推定し、現在位置より少し先を狙うことで、動くターゲットを追う際の見た目の遅れを軽減します。デフォルトはOFFで、OFFのときはターゲットの現在位置を狙います
 - **C++ / Blueprint 両対応** — `UFUNCTION(BlueprintCallable)` によりBlueprintからも呼び出し可能
 - **Details パネルでリアルタイム調整** — パラメータをPlay中に即座に確認・変更可能
@@ -146,7 +147,14 @@ Blueprint では、コンポーネントの Details パネル（Events）の **O
 - 物が多いときは、**MaxRows**（既定 8）で行数を抑え、あふれた分は最後の行に「+N more」と出します。**bOnScreenOnly**（既定 OFF）を ON にすると、カメラに映っていない物は表にも線にも出しません
 - DrawDebug 系の描画なので、**Shipping・Test のビルドでは何も描かれません**（描くコードごとコンパイルされません）。外し忘れても製品版に表示は出ません
 
-**調整は Details パネルで**: Play 中に値を変えるには、**F8** で操作をエディタに戻す（Eject）か **Simulate** で動かし、Outliner でアクターを選んで Details パネルで変更します。
+**ゲーム画面の調整パネル（`LogicDev LookAt Tuning Panel`、新機能）**: Place Actors のウィンドウ（All Classes）からレベルに1つ置くと、Play 中にゲーム画面のまま、1つのオブジェクトの主な設定を変えられます。オブジェクトとは、自動切替のコンポーネントとそれが動かす LookAt コンポーネントの組、または自動切替に動かされていない LookAt コンポーネントです（デバッグ表示の表と同じ）。パネルは右下に出ます。**<** / **>** でオブジェクトを選び、**-** / **+** で値を変え、**o** で ON/OFF を切り替えます。行: Selection Mode（モード）、Use View Angle、View Angle（左右の視野角、度）、Use Max Distance、Max Distance（cm）、Line of Sight（遮蔽物）、Prediction（予測）、Prediction Time（秒）、Fade Time（秒）、Head Look（フェードアウト／イン）、デバッグ表示の出す物（Angles・Lines・Prediction・Table・On Screen Only）。そのオブジェクトに当てはまらない行は `-` と出ます。Details パネルと同じプロパティを変えます。
+
+- **ToggleKey**（既定 **T キー**）でパネルを出し入れします。**bStartHidden** を ON にすると、隠した状態で Play が始まります
+- パネルが出ている間は **UI モード**です。マウスカーソルを出して自由にします（入力は Game and UI なので、ゲームのキーとマウスのボタンも効きます）。キーで隠すと、ゲームのマウスの設定に戻します。自分のカメラ・マウス操作のコードでは、**IsAnyPanelInUIMode** が true の間はマウスでの視点操作を止めるか、**OnUIModeEntered** / **OnUIModeExited** を受け取ってください。カーソルに一切触れさせたくないときは **bUIModeWhileShown** を OFF にします
+- 大きさは、高さ 1080 ピクセルの画面のときと同じです。それより小さいゲーム画面（ノートパソコンの Play in Editor の画面など）では、収まらないときだけ必要な分だけ小さくなり、すべての行が画面に収まって押せます
+- 値は Play を止めると元に戻ります（残すには下の「Play 中に変えた値を残す」）。デバッグ表示と同じく、**Shipping・Test のビルドでは何も描かれず、UI モードにもなりません**
+
+**Details パネルで調整する**: Play 中に値を変えるには、**F8** で操作をエディタに戻す（Eject）か **Simulate** で動かし、Outliner でアクターを選んで Details パネルで変更します。
 
 **Play 中に変えた値を残す**: エンジン標準の **Keep Simulation Changes** を使います。F8 で Eject した状態または Simulate 中に、値を変えたアクターをビューポートか Outliner で右クリックし **Keep Simulation Changes** を選びます（**K キー**でも同じです）。Play を止めた後も、その Actor の値が残ります。その後レベルを保存してください。
 
@@ -343,13 +351,19 @@ Details パネルの **LogicDev | TargetSelector** カテゴリ。
 - モードの切り替え：Play 中に **M キー**を押すと、「近い順」（`Nearest`）→「優先度順」（`Priority`）→「正面に近い順」（`Facing`）の順に切り替わります。デモでは `A2`・`B2` の Priority を 2、`A`・`B` を 1 にしてあるため、優先度順にすると、遠くにいても `A2`・`B2` を見続けます（見えない間を除く）。キーを使わずに切り替える場合は、レベル内の `Demo_SelectionMode` アクターの **Mode** を Details パネルで変更してください（Play 中も変更できます）
 - ラベルの見方：各キャラクターの上にラベルが表示されます。モードと相手のラベルは、現在のモードと、いま見ている相手の名前です（例: `Nearest: A2`、`Priority: B2`）。相手の名前は、その球と同じ系統の色で表示されます。予測のラベルは、予測追従の状態です（`Prediction: OFF` / `Prediction: ON`）
 - 予測追従：左右どちらのデモも、4.5秒ごとに予測追従の OFF / ON が自動で切り替わります（開始時は OFF）。ON の間は、いま見ている相手に対して実際に狙っている先読み位置（`PredictedPosition`）を示す小さなマーカーが表示されます。マーカーを見やすくするため、デモのキャラクターは `PredictionTime = 0.4` にしています（コンポーネントのデフォルトは0.25）
-- 視野・遮蔽物（新機能）：傾く台の上に壁が立っており、全身回転版の側は遮蔽物を判定するため、`A2` が壁の陰にいる間は選びません（ラベルに `(A2 hidden)` と出ます）。IK 首振り版の側は、頭から左右 ±70°・上下 ±45° の視野を持ち、その外にいる球は選びません（`(B2 out of view)`）。**V キー**で視野・遮蔽物の判定を OFF / ON できます
+- 視野・遮蔽物（新機能）：傾く台の上に壁が立っており、全身回転版の側は遮蔽物を判定するため、`A2` が壁の陰にいる間は選びません（ラベルに `(A2 hidden)` と出ます）。IK 首振り版の側は、頭から左右 ±45°・上下 ±45° の視野を持ち、その外にいる球は選びません（`(B2 out of view)`）。**V キー**で視野・遮蔽物の判定を OFF / ON できます
 - 首振りのフェード（新機能）：`IK_Character` は、首振りを一定の周期でフェードアウト・フェードインします（ON 8秒 → フェードアウト 1秒 → OFF 2秒 → フェードイン 1秒）。ラベルに `Look: ON` / `Look: fading out` / `Look: OFF` / `Look: fading in` と出ます。**F キー**で手動でフェードアウト・フェードインできます（周期は止まります）
 - デバッグ表示（新機能）：`Demo_Debug` アクター（`LogicDev LookAt Debug View`）が最初から表示しています。**G キー**で表示・非表示を切り替えます。上記「補助表示・デバッグ表示・Play 中の値を残す」を参照してください
+- 調整パネル（新機能）：`Demo_TuningPanel` アクター（`LogicDev LookAt Tuning Panel`）が、最初から右下にパネルを出しています（マウスカーソルも出ます）。**T キー**で表示・非表示を切り替えます。デモ自身の切り替え（M・V・F キー、予測とフェードの周期）が同じ値を変えることがあります
 
 > **Note:** デモでのモードの一括切り替え・ラベルの表示・予測の OFF / ON の自動切り替え・フェードの周期は、デモ専用のクラス（`LogicDevDemoSelectionModeSwitcherActor`・`LogicDevDemoSelectionLabelComponent`・`LogicDevDemoPredictionToggleComponent`・`LogicDevDemoFadeToggleComponent`）が行っています。ご自身のレベルでは、これらは不要です。自動切替のコンポーネントの **SelectionMode** と、LookAt コンポーネントの **Enable Prediction** を直接設定してください。
 
 > **Note:** デモシーンはプリミティブ形状で構成されています。Mannequinを使用したイメージはFabの商品ページで確認できます（本パッケージには同梱されていません）。
+
+## 困ったとき
+
+- **Play in Editor で、Play を押した直後にデモのキー（M・V・F・G・T）が効かないとき**: 同梱デモでは、Play の始めにキーボードの入力先を自動でゲームの画面に向けています（デモ専用の `Demo_SelectionMode` アクター＝`LogicDevDemoSelectionModeSwitcherActor` の **bFocusGameViewOnPlay**）。自分のレベルでキーが効かないときは、一度ゲームの画面をクリックしてからキーを押すか、エディタの環境設定の **Level Editor > Play > Game Gets Mouse Control** を ON にしてください（UE の初期値は OFF で、マウスで Play を押した直後はキーがエディタ側に残ります）。
+- **コンテンツブラウザにデモのレベルが出ないとき**は、コンテンツブラウザの設定で **Show Plugin Content** を ON にしてください。
 
 ---
 
