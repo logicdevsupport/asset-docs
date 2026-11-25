@@ -374,6 +374,15 @@ Open the bundled demo level `L_SmartPerception_Demo` (the plugin's `Content/Demo
 
 ---
 
+## Videos
+
+- Setup guide: https://youtu.be/csn4rUaDtyI
+- Overview: https://youtu.be/ySbOo_wA780
+- Short: https://youtu.be/6ODQaQLS4ns
+- Smart Perception Lite: overview https://youtu.be/Xk8i9PZxtCE / short https://youtu.be/OdIGHwVC3cc
+
+---
+
 ## Moving from the Free Version (Smart Perception Lite)
 
 There is also a free version, Smart Perception Lite (vision, awareness and events only). Levels and Blueprints made with Lite keep their settings and event bindings after you change to Pro (the same plugin name, class names and setting names).

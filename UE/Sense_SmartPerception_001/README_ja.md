@@ -212,6 +212,15 @@ Unity 版の Smart Perception Lite と同じ機能・同じ既定値です。違
 
 ---
 
+## 動画
+
+- 導入（セットアップ）: https://youtu.be/ZUgJ8angemo
+- 紹介動画: https://youtu.be/Xk8i9PZxtCE
+- ショート: https://youtu.be/OdIGHwVC3cc
+- Smart Perception Pro: 紹介動画 https://youtu.be/ySbOo_wA780 ／ ショート https://youtu.be/6ODQaQLS4ns
+
+---
+
 ## 上位版（Smart Perception Pro）でできること
 
 Smart Perception Pro には Lite のすべて（同じプラグイン名・クラス・設定・イベントが同じ名前で）があり、さらに次ができます:

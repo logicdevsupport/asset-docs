@@ -212,6 +212,15 @@ Open the bundled demo level `L_SmartPerception_Demo` (the plugin's `Content/Demo
 
 ---
 
+## Videos
+
+- Setup guide: https://youtu.be/ZUgJ8angemo
+- Overview: https://youtu.be/Xk8i9PZxtCE
+- Short: https://youtu.be/OdIGHwVC3cc
+- Smart Perception Pro: overview https://youtu.be/ySbOo_wA780 / short https://youtu.be/6ODQaQLS4ns
+
+---
+
 ## Upgrade to Smart Perception Pro
 
 Smart Perception Pro has everything in Lite (the same plugin name, classes, settings and events, with the same names) and adds:

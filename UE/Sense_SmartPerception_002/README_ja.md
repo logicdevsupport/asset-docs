@@ -374,6 +374,15 @@ Unity 版の Smart Perception Pro と同じ機能・同じ既定値です。違�
 
 ---
 
+## 動画
+
+- 導入（セットアップ）: https://youtu.be/csn4rUaDtyI
+- 紹介動画: https://youtu.be/ySbOo_wA780
+- ショート: https://youtu.be/6ODQaQLS4ns
+- Smart Perception Lite（無料版）: 紹介動画 https://youtu.be/Xk8i9PZxtCE ／ ショート https://youtu.be/OdIGHwVC3cc
+
+---
+
 ## 無料版（Smart Perception Lite）からの入れ替え
 
 無料版の Smart Perception Lite（視覚・警戒度・イベントだけ）もあります。Lite で作ったレベルと Blueprint は、Pro に替えても設定とイベントのつながりがそのまま残ります（同じプラグイン名・クラス名・設定の名前）。
