@@ -308,6 +308,15 @@ Unity エディタ（Unity 2022.3 と 6.3、Intel Core i7-14700F）で、400体�
 
 ---
 
+## 動画
+
+- 導入（セットアップ）: https://youtu.be/UkQhYxXfWOE
+- 紹介動画: https://youtu.be/5rk-AmZ5jss
+- ショート: https://youtu.be/U7dnbUD4_wM
+- Smart Perception Lite（無料版）: 紹介動画 https://youtu.be/vsd2rVXo6lU ／ ショート https://youtu.be/lvWqspnw7vM
+
+---
+
 ## インポートの前に（重要）
 
 プロジェクトに Smart Perception Lite（無料版）が入っている場合は、このパッケージをインポートする前に、そのフォルダ（`Assets/LogicDevSupport/SmartPerception/`）を消してください。2つの版は同じフォルダ・同じクラス名・同じファイルの識別子を使うため、Lite の上にインポートすると、フォルダの中に違う版のファイルが残ることがあります。Pro には Lite のすべてのクラス・設定・イベントが同じ名前であるので、入れ替えた後もシーンはそのまま動きます。

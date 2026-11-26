@@ -388,6 +388,13 @@ Details パネルの **LogicDev | TargetSelector** カテゴリ。
 
 ---
 
+## 動画
+
+- 紹介動画: https://youtu.be/GuiANiRiPbI
+- ショート: https://youtu.be/R1h4q2R_Tuw
+
+---
+
 ## 上位版について
 
 本パッケージ（`Move_LookAtSmooth_005`）は、シリーズの最終版（Complete Edition、すべての機能を含む版）です。`Move_LookAtSmooth_004`（Advanced）までの機能に、首振りのフェード、「正面に一番近い相手」モード、視野角・距離・遮蔽物の考慮、ビューポートの補助表示、開発用のデバッグ表示を追加しました。

@@ -147,6 +147,13 @@ Blueprint からも、コンポーネントを取得して **Set Target** / **Pa
 
 ---
 
+## 動画
+
+- 紹介動画: https://youtu.be/7yRoTYuIfCo
+- ショート: https://youtu.be/FExzUCxC23U
+
+---
+
 ## 上位版について
 
 有料の上位版がFabで公開されています。

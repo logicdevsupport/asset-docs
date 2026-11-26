@@ -314,6 +314,13 @@ Notes for users of `Move_LookAtSmooth_003`:
 
 ---
 
+## Videos
+
+- Overview: https://youtu.be/mU8r85kQ7OY
+- Short: https://youtu.be/wQzQe5jEz1s
+
+---
+
 ## Upgrade Path
 
 This package (`Move_LookAtSmooth_004`) is the Advanced upgrade of the series, adding automatic multi-target switching to the features of `Move_LookAtSmooth_003` (Plus).

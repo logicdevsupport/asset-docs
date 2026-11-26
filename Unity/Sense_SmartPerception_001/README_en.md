@@ -171,6 +171,15 @@ Open `Demo_SmartPerception` (`Assets/LogicDevSupport/SmartPerception/Demo/`) and
 
 ---
 
+## Videos
+
+- Setup guide: https://youtu.be/JjSQFT_i1v8
+- Overview: https://youtu.be/vsd2rVXo6lU
+- Short: https://youtu.be/lvWqspnw7vM
+- Smart Perception Pro: overview https://youtu.be/5rk-AmZ5jss / short https://youtu.be/U7dnbUD4_wM
+
+---
+
 ## Upgrade to Smart Perception Pro
 
 Smart Perception Pro has everything in Lite (the same classes, settings and events, with the same names) and adds:

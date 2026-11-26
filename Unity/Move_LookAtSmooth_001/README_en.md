@@ -135,7 +135,7 @@ Paid upgrades are now available on the Unity Asset Store:
 - Smooth LookAt Component Plus (adds tilting-object support and Predictive LookAt): https://assetstore.unity.com/packages/slug/404560
 - Smooth LookAt Component Complete Edition (the final version: everything in Plus, plus automatic multi-target selection, view limits, head fade, gizmos and development tools): https://assetstore.unity.com/packages/slug/410220
 
-Videos: https://www.youtube.com/@LogicDevSupport
+Videos: overview https://youtu.be/qev1ulusfrs / short https://youtu.be/Php4rr0CRhs / channel https://www.youtube.com/@LogicDevSupport
 
 ※ If you upgrade, please delete this free version (`Move_LookAtSmooth_001`) from your project before importing the upgrade. Importing both at the same time will cause compile errors due to duplicate class definitions.
 

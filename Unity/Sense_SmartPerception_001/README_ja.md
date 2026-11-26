@@ -171,6 +171,15 @@ sensor.TargetSpotted += target => Debug.Log("Spotted " + target.name);
 
 ---
 
+## 動画
+
+- 導入（セットアップ）: https://youtu.be/JjSQFT_i1v8
+- 紹介動画: https://youtu.be/vsd2rVXo6lU
+- ショート: https://youtu.be/lvWqspnw7vM
+- Smart Perception Pro: 紹介動画 https://youtu.be/5rk-AmZ5jss ／ ショート https://youtu.be/U7dnbUD4_wM
+
+---
+
 ## 上位版（Smart Perception Pro）でできること
 
 Smart Perception Pro には Lite のすべて（同じクラス・設定・イベントが同じ名前で）があり、さらに次ができます:

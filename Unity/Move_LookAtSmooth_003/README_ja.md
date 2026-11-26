@@ -354,7 +354,11 @@ IK 版も同じ API を使用できます。
 
 https://assetstore.unity.com/packages/slug/389610
 
-動画: https://www.youtube.com/@LogicDevSupport
+シリーズの「Smooth LookAt Component Plus」（傾く物の上での追従と、予測追従）は以下からご利用いただけます。
+
+https://assetstore.unity.com/packages/slug/404560
+
+動画: 紹介動画 https://youtu.be/QY8gGBqNaLI ／ ショート https://youtu.be/wE6x8u-g8Z4 ／ チャンネル https://www.youtube.com/@LogicDevSupport
 
 ---
 

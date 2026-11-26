@@ -355,7 +355,11 @@ The free version (`Move_LookAtSmooth_001`) is available here:
 
 https://assetstore.unity.com/packages/slug/389610
 
-Videos: https://www.youtube.com/@LogicDevSupport
+Also in the series, Smooth LookAt Component Plus (tilting-object support and Predictive LookAt) is available here:
+
+https://assetstore.unity.com/packages/slug/404560
+
+Videos: overview https://youtu.be/QY8gGBqNaLI / short https://youtu.be/wE6x8u-g8Z4 / channel https://www.youtube.com/@LogicDevSupport
 
 ---
 

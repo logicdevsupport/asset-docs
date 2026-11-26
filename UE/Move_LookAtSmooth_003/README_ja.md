@@ -209,6 +209,13 @@ Blueprint からも、コンポーネントを取得して **Set Target** / **Pa
 
 ---
 
+## 動画
+
+- 紹介動画: https://youtu.be/QgXZH8-Je94
+- ショート: https://youtu.be/hEg_SZBrrAU
+
+---
+
 ## 上位版について
 
 本パッケージ（`Move_LookAtSmooth_003`）は、`Move_LookAtSmooth_001`（無料版）・`Move_LookAtSmooth_002`（Standard、UpAxis対応）に予測追従を追加した Plus 版です。

@@ -151,6 +151,13 @@ You can check the component behavior immediately using the included demo level `
 
 ---
 
+## Videos
+
+- Overview: https://youtu.be/Um1FzeAHIbs
+- Short: https://youtu.be/8OYH6ySbT_k
+
+---
+
 ## Upgrade Path
 
 This package (`Move_LookAtSmooth_002`) is the paid upgrade to `Move_LookAtSmooth_001` (the free version). It adds

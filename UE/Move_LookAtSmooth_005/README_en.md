@@ -389,6 +389,13 @@ Notes for users of `Move_LookAtSmooth_004`:
 
 ---
 
+## Videos
+
+- Overview: https://youtu.be/GuiANiRiPbI
+- Short: https://youtu.be/R1h4q2R_Tuw
+
+---
+
 ## Upgrade Path
 
 This package (`Move_LookAtSmooth_005`) is the final version of the series (Complete Edition, with every feature). It adds the head fade, the "most in front" mode, field of view / distance / line of sight, the viewport display and the development debug display to the features of `Move_LookAtSmooth_004` (Advanced).

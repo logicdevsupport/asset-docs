@@ -151,6 +151,13 @@ Blueprint からも、コンポーネントを取得して **Set Target** / **Pa
 
 ---
 
+## 動画
+
+- 紹介動画: https://youtu.be/Um1FzeAHIbs
+- ショート: https://youtu.be/8OYH6ySbT_k
+
+---
+
 ## 上位版について
 
 本パッケージ（`Move_LookAtSmooth_002`）は `Move_LookAtSmooth_001`（無料版）の有料上位版です。

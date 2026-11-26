@@ -209,6 +209,13 @@ Notes for users of `Move_LookAtSmooth_002`:
 
 ---
 
+## Videos
+
+- Overview: https://youtu.be/QgXZH8-Je94
+- Short: https://youtu.be/hEg_SZBrrAU
+
+---
+
 ## Upgrade Path
 
 This package (`Move_LookAtSmooth_003`) is the Plus upgrade of `Move_LookAtSmooth_001` (the free version) and `Move_LookAtSmooth_002` (Standard, UpAxis support), adding Predictive LookAt.

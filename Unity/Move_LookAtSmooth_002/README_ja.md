@@ -201,7 +201,7 @@ https://assetstore.unity.com/packages/slug/410220
 
 https://assetstore.unity.com/packages/slug/389610
 
-動画: https://www.youtube.com/@LogicDevSupport
+動画: 紹介動画 https://youtu.be/eowEC9rYavM ／ ショート https://youtu.be/1GorMFFqxgQ ／ チャンネル https://www.youtube.com/@LogicDevSupport
 
 ---
 

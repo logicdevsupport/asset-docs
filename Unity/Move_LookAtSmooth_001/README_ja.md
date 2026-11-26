@@ -135,7 +135,7 @@ IK 版も同じ API を使用できます。
 - Smooth LookAt Component Plus（傾く物の上での追従と、予測追従を追加）: https://assetstore.unity.com/packages/slug/404560
 - Smooth LookAt Component Complete Edition（シリーズの最終版。Plus の全機能に、複数の相手の自動切り替え・視野の制限・首振りのフェード・ギズモ・開発用の道具を追加）: https://assetstore.unity.com/packages/slug/410220
 
-動画: https://www.youtube.com/@LogicDevSupport
+動画: 紹介動画 https://youtu.be/qev1ulusfrs ／ ショート https://youtu.be/Php4rr0CRhs ／ チャンネル https://www.youtube.com/@LogicDevSupport
 
 ※ 上位版を導入する場合は、導入前にプロジェクトからこの無料版（`Move_LookAtSmooth_001`）を削除してください（同じクラス名を使用しているため、両方を同時に導入するとコンパイルエラーになります）。
 

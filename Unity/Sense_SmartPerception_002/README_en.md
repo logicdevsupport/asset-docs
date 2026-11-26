@@ -308,6 +308,15 @@ Open `Demo_SmartPerception` (`Assets/LogicDevSupport/SmartPerception/Demo/`) and
 
 ---
 
+## Videos
+
+- Setup guide: https://youtu.be/UkQhYxXfWOE
+- Overview: https://youtu.be/5rk-AmZ5jss
+- Short: https://youtu.be/U7dnbUD4_wM
+- Smart Perception Lite (free version): overview https://youtu.be/vsd2rVXo6lU / short https://youtu.be/lvWqspnw7vM
+
+---
+
 ## Before You Import (Important)
 
 If Smart Perception Lite (the free version) is in your project, delete its folder (`Assets/LogicDevSupport/SmartPerception/`) before importing this package. Both versions use the same folder, the same class names and the same file identities, so importing on top of Lite can leave files of the wrong version in the folder. Your scenes keep working after the change: Pro has every class, setting and event of Lite with the same names.

@@ -313,6 +313,13 @@ Details パネルの **LogicDev | TargetSelector** カテゴリ。
 
 ---
 
+## 動画
+
+- 紹介動画: https://youtu.be/mU8r85kQ7OY
+- ショート: https://youtu.be/wQzQe5jEz1s
+
+---
+
 ## 上位版について
 
 本パッケージ（`Move_LookAtSmooth_004`）は、`Move_LookAtSmooth_003`（Plus）までの機能に、複数ターゲットの自動切替を追加した Advanced 版です。

@@ -201,7 +201,7 @@ The free version (`Move_LookAtSmooth_001`) is available here:
 
 https://assetstore.unity.com/packages/slug/389610
 
-Videos: https://www.youtube.com/@LogicDevSupport
+Videos: overview https://youtu.be/eowEC9rYavM / short https://youtu.be/1GorMFFqxgQ / channel https://www.youtube.com/@LogicDevSupport
 
 ---
 

@@ -147,6 +147,13 @@ You can check the component behavior immediately using the included demo level `
 
 ---
 
+## Videos
+
+- Overview: https://youtu.be/7yRoTYuIfCo
+- Short: https://youtu.be/FExzUCxC23U
+
+---
+
 ## Upgrade Path
 
 Paid upgrades are now available on Fab:
